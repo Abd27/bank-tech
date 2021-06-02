@@ -5,8 +5,8 @@
 
 ## User stories
 > As a user
->So i can have money in my account
->I want to be able to make a deposit of certain amount.
+So i can have money in my account
+I want to be able to make a deposit of certain amount.
 
 
 > As a user
