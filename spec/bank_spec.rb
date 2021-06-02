@@ -13,4 +13,11 @@ describe Bank do
       expect(subject.balance).to eq(100)
     end
   end
+
+  describe '.withdrawl' do
+    it 'takes away from the balance' do
+      subject.deposit(100)
+      expect { subject.withdrawl(50) }.to change { subject.balance }.by(-50)
+    end
+  end
 end
