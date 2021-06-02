@@ -23,6 +23,10 @@ class Bank
     create_transaction(debit: amount, balance: @balance)
   end
 
+  def print_statement
+    statement = Statement.new(@transactions)
+    statement.display
+  end  
 
   private
 
