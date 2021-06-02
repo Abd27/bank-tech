@@ -16,7 +16,7 @@ class Bank
   end
 
   def withdrawl(amount)
-    raise 'insufficient balance' if amount > @balance
+    raise 'insufficient balance' if insufficient_balance?(amount)
 
     @balance -= amount
     create_transaction(debit: amount, balance: @balance)
@@ -26,5 +26,9 @@ class Bank
 
   def create_transaction(args)
     @transactions << Transaction.new(args)
+  end
+
+  def insufficient_balance?(amount)
+    amount > @balance
   end
 end
