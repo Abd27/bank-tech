@@ -13,5 +13,5 @@ describe Transaction do
     subject = Transaction.new(debit: 50, balance: 150)
     expect(subject.debit).to eq(50)
     expect(subject.balance).to eq(150)
-  end 
+  end
 end

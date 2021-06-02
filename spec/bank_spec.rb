@@ -9,7 +9,6 @@ describe Bank do
     expect(subject.balance).to eq(0)
   end
 
-
   describe '.deposit' do
     it 'adds to balance' do
       subject.deposit(100)
