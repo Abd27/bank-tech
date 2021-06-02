@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'transaction'
+require_relative 'statement'
 
 class Bank
   attr_reader :balance, :transactions
@@ -21,6 +22,7 @@ class Bank
     @balance -= amount
     create_transaction(debit: amount, balance: @balance)
   end
+
 
   private
 
