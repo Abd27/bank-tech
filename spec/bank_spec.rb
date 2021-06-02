@@ -3,9 +3,12 @@
 require 'Bank'
 
 describe Bank do
+  it { is_expected.to respond_to(:transactions) }
+
   it 'starts with a balance of zero' do
     expect(subject.balance).to eq(0)
   end
+
 
   describe '.deposit' do
     it 'adds to balance' do
