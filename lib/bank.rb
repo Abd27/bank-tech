@@ -9,9 +9,11 @@ class Bank
 
   def deposit(amount)
     @balance += amount
-  end 
-  
+  end
+
   def withdrawl(amount)
+    raise 'insufficient balance' if amount > @balance
+
     @balance -= amount
-  end  
+  end
 end

@@ -19,5 +19,9 @@ describe Bank do
       subject.deposit(100)
       expect { subject.withdrawl(50) }.to change { subject.balance }.by(-50)
     end
+
+    it 'raise and error if the withdrawl amount is not available' do
+      expect { subject.withdrawl(50) }.to raise_error('insufficient balance')
+    end
   end
 end
