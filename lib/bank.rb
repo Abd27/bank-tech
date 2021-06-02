@@ -26,7 +26,8 @@ class Bank
   def print_statement
     statement = Statement.new(@transactions)
     statement.display
-  end  
+    nil
+  end
 
   private
 
