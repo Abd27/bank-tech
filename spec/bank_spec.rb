@@ -15,6 +15,16 @@ describe Bank do
       subject.deposit(100)
       expect(subject.balance).to eq(100)
     end
+
+    it 'creates a transaction' do
+      subject.deposit(100)
+      # i have a question for reviewr, if i know transaction instance is working as intended
+      # indpedently then assuming it will work as long as it is an instance of transaction should suffice.
+      # is my logic correct on this?
+      expect(subject.transactions.first).to be_instance_of(Transaction)
+      # following was my other way of testing but it seems like we are testing it twice as we have tested exact same thing in transaction.
+      expect(subject.transactions.first.balance).to eq(100)
+    end
   end
 
   describe '.withdrawl' do

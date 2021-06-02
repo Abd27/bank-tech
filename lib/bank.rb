@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative 'transaction'
 
 class Bank
   attr_reader :balance, :transactions
@@ -10,6 +11,9 @@ class Bank
 
   def deposit(amount)
     @balance += amount
+
+    transaction = Transaction.new(credit: amount, balance: @balance)
+    @transactions << transaction
   end
 
   def withdrawl(amount)
@@ -17,4 +21,5 @@ class Bank
 
     @balance -= amount
   end
+
 end
