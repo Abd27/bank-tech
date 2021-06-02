@@ -32,6 +32,13 @@ describe Bank do
       expect { subject.withdrawl(50) }.to change { subject.balance }.by(-50)
     end
 
+    it 'creates a transaction on withdrawl' do
+      subject.deposit(100)
+      subject.withdrawl(50)
+      expect(subject.transactions[1]).to be_instance_of(Transaction)
+      expect(subject.transactions[1].balance).to eq(50)
+    end
+
     it 'raise and error if the withdrawl amount is not available' do
       expect { subject.withdrawl(50) }.to raise_error('insufficient balance')
     end

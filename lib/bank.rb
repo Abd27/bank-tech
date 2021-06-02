@@ -19,6 +19,7 @@ class Bank
     raise 'insufficient balance' if amount > @balance
 
     @balance -= amount
+    create_transaction(debit: amount, balance: @balance)
   end
 
   private
