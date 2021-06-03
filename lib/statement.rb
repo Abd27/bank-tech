@@ -19,7 +19,7 @@ class Statement
 
   def update_entries(transactions)
     transactions.reverse.each do |transaction|
-      entry = "#{transaction.date} || #{'%.2f' % transaction.credit} || #{'%.2f' % transaction.debit} || #{'%.2f' % transaction.balance}"
+      entry = "#{transaction.date} || #{'%.2f' % transaction.credit if transaction.credit} || #{'%.2f' % transaction.debit if transaction.debit} || #{'%.2f' % transaction.balance}"
       @entries << entry
     end
   end

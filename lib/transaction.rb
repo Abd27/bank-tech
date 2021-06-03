@@ -5,8 +5,8 @@ class Transaction
 
   def initialize(args)
     @date = Time.now.strftime('%d/%m/%Y')
-    @credit = args[:credit]        || 0
-    @debit = args[:debit]          || 0
+    @credit = args[:credit]        
+    @debit = args[:debit]          
     @balance = args[:balance]
   end
 end
