@@ -3,6 +3,7 @@
 require 'Bank'
 
 describe Bank do
+  let(:transaction) { double('Transaction', date: Time.now.strftime('%d/%m/%Y'), credit: 100, debit: nil, balance: 100) }
   it { is_expected.to respond_to(:transactions) }
 
   it 'starts with a balance of zero' do
@@ -16,12 +17,8 @@ describe Bank do
     end
 
     it 'creates a transaction' do
+      allow(Transaction).to receive(:new).and_return(transaction)
       subject.deposit(100)
-      # i have a question for reviewr, if i know transaction instance is working as intended
-      # indpedently then assuming it will work as long as it is an instance of transaction should suffice.
-      # is my logic correct on this?
-      expect(subject.transactions.first).to be_instance_of(Transaction)
-      # following was my other way of testing but it seems like we are testing it twice as we have tested exact same thing in transaction.
       expect(subject.transactions.first.balance).to eq(100)
     end
   end
